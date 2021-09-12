@@ -1,5 +1,5 @@
 <?php include 'application/views/Layout/sideNavigation.php';?>
-<div class="text">Add Complaint</div>
+<div class="text">Add Complaint Add Complaint</div>
 <div class="container pt-5">
   <div class="card card-registration" style="border-radius: 15px;">
     <div class="p-5">
