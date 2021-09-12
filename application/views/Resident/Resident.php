@@ -1,5 +1,6 @@
 <?php include 'application/views/Layout/sideNavigation.php';?>
 
+<!-- Form -->
 <div class="container pt-5">
   <div class="card card-registration" style="border-radius: 15px;">
     <div class="p-5">
@@ -148,6 +149,12 @@
 </div>
 </div>
 </div>
+<!-- Form End -->
+
+
+
+
+
 
 <div class="container py-2 h-100">      
   <div class="card card-registration" style="border-radius: 15px;">
