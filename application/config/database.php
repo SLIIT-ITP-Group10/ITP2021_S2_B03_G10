@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'spathodea.mysql.database.azure.com',
-	'username' => 'ITP_Group10@spathodea',
-	'password' => 'SPA_thodea@10',
-	'database' => 'itp-spathodea',
+	'hostname' => 'localhost',
+	'username' => '',
+	'password' => '',
+	'database' => '',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
