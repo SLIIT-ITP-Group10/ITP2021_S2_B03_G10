@@ -12,7 +12,7 @@
   top: 0;
   height: 100%;
   width: 100px;
-  background: #11101D;
+  background: #000000;
   padding: 6px 0px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -113,7 +113,7 @@
   background: #1d1b31;
 }
 .sidebar.open input{
-  padding: 0 20px 0 50px;
+  padding: 0 0px 0 50px;
   width:72%;
 }
 .sidebar .bx-search{
@@ -224,10 +224,10 @@
 }
 .home-section{
   position: relative;
-  background: #ffffff;
-  min-height: 100vh;
+  /* background: #ffffff; */
+  /* min-height: 100vh; */
   top: 0;
-  left: 78px;
+  left: 60px;
   padding-left: 40px;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
