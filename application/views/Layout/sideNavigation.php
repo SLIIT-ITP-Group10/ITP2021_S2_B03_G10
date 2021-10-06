@@ -97,9 +97,12 @@
      <li class="profile">
          <div class="profile-details">
            <img src="<?= base_url(); ?>/assets/img/emilyz.jpg" alt="profileImg">
+           <!-- <img src="<?= base_url(); ?>/assets/img/manager.jpg" alt="profileImg"> -->
            <div class="name_job">
              <div class="name">Prem Shahi</div>
+             <!-- <div class="name">Mohan De Silva</div> -->
              <div class="job">Resident SPE10901</div>
+             <!-- <div class="job">Manager SP1098</div> -->
            </div>
          </div>
          <i class='bx bx-log-out' id="log_out" ></i>
