@@ -1,6 +1,6 @@
 <?php include 'application/views/Layout/sideNavigation.php';?>
 
-<!-- Form -->
+<!-------------------------------------------- Form -------------------------------------------------------->
 <div class="container pt-5">
   <div class="card card-registration" style="border-radius: 15px;">
     <div class="p-5">
@@ -149,7 +149,7 @@
 </div>
 </div>
 </div>
-<!-- Form End -->
+<!------------------------------------------------------- Form End ------------------------------------------------------------------>
 
 
 
@@ -378,7 +378,7 @@
   </div>
 
 
-
+<!--------------------------------------------- Sample table ------------------------------------------------->
   <table class="table table-hover">
   <thead>
     <tr>
@@ -409,5 +409,6 @@
     </tr>
   </tbody>
 </table>
+<!------------------------------------------------------ End table --------------------------------------------->
 </section>
 <?php include 'application/views/Layout/sideNavFooter.php';?>

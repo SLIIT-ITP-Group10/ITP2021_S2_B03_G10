@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'spathodea.mysql.database.azure.com',
-	'username' => 'ITP_Group10@spathodea',
-	'password' => 'SPA_thodea@10',
+	'hostname' => 'localhost:3307',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'itp-spathodea',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
