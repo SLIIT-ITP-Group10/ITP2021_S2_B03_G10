@@ -100,7 +100,7 @@
      </li>
     </ul>
   </div>
-  <?php //include 'application/views/Layout/header.php';?>
+  <?php include 'application/views/Layout/header.php';?>
   <section class="home-section">
 
   

@@ -55,6 +55,19 @@ class RegisterUser extends CI_Controller
     $this->load->view('Manager/AddResident', $data);
   }
 
+  public function ViewCommitteeResident()
+  {
+    $this->load->model("Committee_model");
+    $data["fetch_CommitteeMember"] = $this->Committee_model->fetch_CommitteeMember();
+    $this->load->view("Resident/Committee", $data);
+  }
+
+
+
+  public function loadWelcome(){  
+    $this->load->view('Resident/welcome_visitor');
+  }
+
   public function GetContact(){
     $this->load->model("Resident_model");
     $data['contact'] = $this->Resident_model->fetch_Contact();    

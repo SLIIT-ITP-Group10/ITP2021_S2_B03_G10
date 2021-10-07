@@ -34,7 +34,7 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="<?php echo site_url('Welcome/loadLogin') ?>">
+        <a href="<?php echo site_url('RegisterUser/loadWelcome') ?>">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
@@ -90,7 +90,7 @@
        <span class="tooltip">Car Park</span>
      </li>
      <li>
-       <a href="#">
+       <a href="<?php echo site_url('RegisterUser/ViewCommitteeResident') ?>">
          <i class='bx bx-user-circle' ></i>
          <span class="links_name">Committee</span>
        </a>

@@ -1,19 +1,15 @@
-<?php include 'application/views/Layout/sideNavigation.php';?>
 
+<?php include 'application/views/Layout/ResidentsideNavigation.php';?>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/bootstrap/css/welcomevisitor.css">
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<br>
 
+<div class="container pt-5">
 
-<div class="container">
-
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color:#FFFFFF; border-radius:12px;">
 
   
    

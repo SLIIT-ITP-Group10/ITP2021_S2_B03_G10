@@ -8,7 +8,7 @@
               <div class="card pb-5 shadow"  style="border-radius:15px">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center pt-5">
-                    <img src="<?= base_url(); ?>/assets/img/manager.jpg" alt="Admin" class="rounded-circle " width="150">
+                    <img src="<?= base_url(); ?>/assets/img/member.png" alt="Admin" class="rounded-circle " width="150">
                     <div class="mt-3">
                     <?php
 
