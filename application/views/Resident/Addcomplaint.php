@@ -1,5 +1,5 @@
 <?php include 'application/views/Layout/sideNavigation.php';?>
-<div class="text">Add Complaints</div>
+<!-- <div class="text">Add Complaints</div>
 <div class="container pt-5">
   <div class="card card-registration" style="border-radius: 15px;">
     <div class="p-5">
@@ -147,15 +147,61 @@
 </div>
 </div>
 </div>
+</div> -->
+<!-- <h3><div class="text-center"style="color: #4835d4;">Add Complaints</div></h3> -->
+<div class="container pt-5 pb-5">
+
+
+  <div class="row p-5 ">
+  <h3><div class="text-center"style="color: #4835d4;">Add Complaints</div></h3>
+  <div class="row p-5 ">
+    <div class="col-lg-6">
+        <!-- <?php if($this->session->flashdata('msg')){
+            echo "<h2>".$this->session->flashdata('msg')."</h2>";
+        }
+        ?> -->
+
+    <?php echo validation_errors(); ?>
+
+           <?php echo form_open('Complaint_Control/sendcomplaint'); ?>
+        <div>
+            <label for="exampleInputName" class="form-label">Resident ID</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="Name" placeholder="Resident ID" name="Resident_ID">
+        </div>
+
+        <div class="pt-5">
+            <label for="exampleInputName" class="form-label">Subtitle </label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="Name" placeholder="About what?" name="sub">
+        </div>
+
+        <div class="pt-5">
+            <label for="exampleInputName" class="form-label">Complaint Description</label>
+            <textarea class="form-control h-5" rows="6" id="exampleInputName" aria-describedby="Name" placeholder="Short description about your complaint ... " name="Description"></textarea>
+        </div>
+      
+
+
+    </div>
+
+    <div class="col-lg-6">
+    
+    <!-- <img src="<?= base_url(); ?>/assets/img/emilyz.jpg" alt="profileImg" style="padding-left:80px"> -->
+    <i class="bx bx-camera" id="btn" style="padding-left:120px; font-size: 8.0rem"></i>
+
+    <!-- View file -->
+    <input type="file" id="myFile" name="filename" style="padding-left:135px;">
+    
+    <div class="align-left" style="padding-top:290px">
+              <button type="submit" class="btn btn-primary float-end">Submit</button>
+    </div>
+    <?php echo form_close(); ?>
+    
+    </div>
+
+  </div>
+
 </div>
-
-
-
-
-
-
-
-
+</div>
 
 
 <?php include 'application/views/Layout/sideNavFooter.php';?>
