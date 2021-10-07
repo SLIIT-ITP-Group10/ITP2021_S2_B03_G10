@@ -52,6 +52,16 @@ class Committee extends CI_Controller
 
   }
 
+  public function ResidentDetails()
+  {
+
+		$this->load->model("Resident_model");
+		$data["fetch_ResidentData"] = $this->Resident_model->fetch_ResidentData();
+    $data["fetch_Apartment"] = $this->Resident_model->fetch_ApartmentDetails();
+		$this->load->view('Manager/ResidentDetails', $data);
+
+  }
+
   public function ResidentCommitteeMembers()
   {
 
@@ -272,6 +282,75 @@ class Committee extends CI_Controller
       }
 
   }
+
+  public function GenarateReport(){
+
+
+    $this->load->model('Committee_model');
+    $this->load->dbutil();
+    $this->load->helper('file');
+    $this->load->helper('download');
+    $report = $this->Committee_model->getReport();
+    $new_report = $this->dbutil->csv_from_result($report);
+    write_file('MemerbshipFeeReport.csv',$new_report);
+    force_download('MemerbshipFeeReport.csv', $new_report);
+
+  }
+
+  public function GetReport(){
+
+    $this->load->model('Committee_model');
+    $data["fetch_Committee"] = $this->Committee_model->getReport();
+
+    $this->load->view('Manager/Modal/MembershipReport', $data);
+
+  }
+
+  public function action()
+  {
+   $this->load->model("Committee_model");
+   $this->load->library("excel");
+   $object = new PHPExcel();
+ 
+   $object->setActiveSheetIndex(0);
+ 
+   $table_columns = array("Receipt ID", "Apartment ID", "Owner ID", "Floor Area in sqft", "Rate per sqft", "Total for a month", "Total for 6 month", "Season", "Payment Method", "Deposit Date", "Payment Status");
+ 
+   $column = 0;
+ 
+   foreach($table_columns as $field)
+   {
+    $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+    $column++;
+   }
+ 
+   $committee_data = $this->Committee_model->getReport();
+ 
+   $excel_row = 2;
+ 
+   foreach($committee_data->result() as $row)
+   {
+    $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->SP_MEMBERSHIP_RECEIPT_ID);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->SP_APARTMENT_ID);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->SP_RESIDENT_ID);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->SP_APRTMENT_SIZE);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->SP_RATE_PER_SQRT);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->SP_MONTH_AMOUNT);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->SP_6MONTHS_AMOUNT);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->SP_MEMBERSHIP_SEASON);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->SP_PAYMENT_METHOD);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->SP_DEPOSITED_DATE);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->SP_PAYMENT_STATUS);
+    $excel_row++;
+   }
+ 
+   $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+   header('Content-Type: application/vnd.ms-excel');
+   header('Content-Disposition: attachment;filename="MembershipData.xls"');
+   $object_writer->save('php://output');
+
+  }
+ 
 
 }
 

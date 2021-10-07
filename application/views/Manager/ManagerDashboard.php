@@ -59,10 +59,10 @@
 
                 <div class="row">
                     <div class="col">
-                    <h3 class="card-title">View <br>Staff <br>Details</h3>
+                    <h3 class="card-title">View <br>Resident <br>Details</h3>
                     </div>
                     <div class="col text-center align-self-center">
-                    <a href="<?php echo base_url();?>index.php/Committee/CommitteeMembers" class="btn btn-primary rounded-pill" style="width:150px">More</a>
+                    <a href="<?php echo base_url();?>index.php/Committee/ResidentDetails" class="btn btn-primary rounded-pill" style="width:150px">More</a>
                     </div>
                 </div>
                 

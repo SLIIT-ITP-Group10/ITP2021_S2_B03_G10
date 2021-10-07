@@ -45,7 +45,7 @@ class RegisterUser extends CI_Controller
 
 	public function loadResidentRegister()
 	{
-		$this->load->view('Resident/Resident');
+		$this->load->view('Manager/AddResident');
 	}
 
   public function AddResident()
@@ -53,6 +53,12 @@ class RegisterUser extends CI_Controller
     $this->load->model("Resident_model");
     $data['apartmentid'] = $this->Resident_model->fetch_Apartment();
     $this->load->view('Manager/AddResident', $data);
+  }
+
+  public function GetContact(){
+    $this->load->model("Resident_model");
+    $data['contact'] = $this->Resident_model->fetch_Contact();    
+    $this->load->view('Manager/ContactModal', $data);
   }
 
   public function RegisterResident()
@@ -80,12 +86,15 @@ class RegisterUser extends CI_Controller
         $this->load->model("Resident_model");
 
         if($this->Resident_model->insert_ResidentData() == TRUE){
-          //$this->load->library('Welcome/loadSignup');
-          redirect(base_url() . "index.php/Welcome/loadSignup");
+
+          echo '<script>alert("Data Inserted")</script>';
+          $this->AddResident();
+          //$this->load->library('Manager/AddResident');
+          //redirect(base_url() . "index.php/RegisterUser/AddResident");
         }
         else{
-          $this->AddResident();
           echo '<script>alert("Data Not Inserted")</script>';
+          $this->AddResident();
         }
 
     }

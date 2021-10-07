@@ -36,6 +36,14 @@ class Committee_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
+  public function getReport(){
+
+    $this->db->order_by('SP_MEMBERSHIP_RECEIPT_ID', "DESC");
+    $query = $this->db->query('select * FROM sp_membership_details where SP_PAYMENT_STATUS = "NotPaid"');
+    return $query;
+
+  }
+
   public function fetch_Committee()
   {
     $query = $this->db->get("sp_membership_details");

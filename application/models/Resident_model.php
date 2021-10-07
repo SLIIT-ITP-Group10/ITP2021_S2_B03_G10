@@ -93,6 +93,19 @@ class Resident_model extends CI_Model {
     return $query;
   }
 
+  public function fetch_Contact()
+  {
+    $contact = $this->input->post("resid", TRUE);
+    $this->db->where('SP_RESIDENT_ID', $contact);
+    $query = $this->db->get("sp_resident_phone_number");
+    return $query;
+  }
+
+  public function fetch_ApartmentDetails()
+  {
+    $query = $this->db->get("sp_apartment_details");
+    return $query;
+  }
   public function fetch_Apartment()
   {
     $result = $this->db->query("select SP_APARTMENT_ID from sp_apartment_details where SP_RESIDENT_ID IS NULL");

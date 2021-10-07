@@ -29,6 +29,17 @@ class Staff extends CI_Controller {
 		$this->load->view('Manager/StaffDetails', $data);
 	}
 
+	public function StaffDetails()
+	{
+		$this->load->model('Staff_model');
+		$data['fetch_userData'] = $this->Staff_model->fetch_userData();
+		
+		$this->load->model('model_salary');
+		$data['fetch_data'] = $this->model_salary->fetch_data();
+		// $this->load->view('Manager/StaffDetails');
+		$this->load->view('Manager/StaffDetails', $data);
+	}
+
 	public function manager()
 	{
 		$this->load->model('model_register');

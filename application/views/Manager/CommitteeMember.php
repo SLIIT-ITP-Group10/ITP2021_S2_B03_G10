@@ -10,7 +10,7 @@
       <th scope="col" class="text-center">ID</th>
       <th scope="col" class="text-center">Position</th>
       <th scope="col" class="text-center">Resident ID</th>
-      <th scope="col" class="text-center">Joined Date</th>    
+      <th scope="col" class="text-center">Joined Date</th>
       <th scope="col" class="text-center">View</th>
       <th scope="col" class="text-center">Update</th>
     </tr>
@@ -80,7 +80,7 @@
                     <h3 class="card-title">Resident Membership Details</h3>
                     </div>
                     <div class="col text-center align-self-center">
-                    <a href="<?php echo base_url();?>index.php/Committee/CommitteeMembers" class="btn btn-primary rounded-pill" style="width:150px">More</a>
+                    <a href="<?php echo base_url();?>index.php/Committee/CommitteeMembership" class="btn btn-primary rounded-pill" style="width:150px">More</a>
                     </div>
                 </div>
                 

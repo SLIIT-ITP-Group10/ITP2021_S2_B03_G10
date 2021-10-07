@@ -1,8 +1,8 @@
 <?php include 'application/views/Layout/ManagersideNavigation.php';?>
-<div class="text">Committee Fee</div>
+<div class="text text-light">Committee Fee</div>
 <div class="p-5">
 
-<div class="float-end ">
+<div class="float-end">
 
 <div class="input-group">
   <div class="form-outline">
@@ -15,13 +15,15 @@
 
 </div>
 <div class="float-end pb-5 px-2">  
-     <button type="button" class="btn btn-dark ">Generate Report</button>
+    <?php echo form_open('Committee/GetReport');?>
+    <input type="submit" name="export" value="Generate Report" class="btn btn-info"></input>
+    <?php echo form_close();?>
 </div>
 
 
 </div>
 
-<div class="p-5">
+<div class="p-5" id="report">
 
 <table class="table table-hover w-100 mx-auto" id="myTable" style="border-radius:12px; background-color:#FFFFFF; opacity:0.9; font-size: 14px;">
   <thead>
@@ -137,7 +139,7 @@
             </div>
  </div>
 
- <!-- Update Delete Use here -->
+ <!-- Delete Use here -->
 <div class="modal fade" id="userdeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampledeleteModalLabel" aria-hidden="true" data-backdrop="false" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -194,6 +196,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.1/html2pdf.bundle.min.js"></script>
 <script>
 
 $(document).ready(function(){
@@ -212,7 +215,7 @@ $("#myTable").on('click','.update',function(){
      
      alert(data);
 
-            $('#userdeleteModal').modal('show');  
+            $('#userModal').modal('show');  
             $('#id').val(col0);
             $('#method').val(col1);   
             $('#depositeddate').val(col2);  
@@ -267,6 +270,23 @@ function myFunction() {
     }
   }
 }
+
+window.onload = function () {
+	    document.getElementById("download")
+	        .addEventListener("click", () => {
+	            const invoice = this.document.getElementById("report");
+	            console.log(invoice);
+	            console.log(window);
+	            var opt = {
+	                margin: 1,
+	                filename: 'MembershipFee_Report.pdf',
+	                image: { type: 'jpeg', quality: 0.98 },
+	                html2canvas: { scale: 8},
+	                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+	            };
+	            html2pdf().from(invoice).set(opt).save();
+	        })
+	}
 </script>
 
 <!------------------------------------------------------ End table --------------------------------------------->
